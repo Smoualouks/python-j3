@@ -3,15 +3,18 @@ import os
 # définition de la classe PageMaker:
 
 class PageMaker:
+
      #attributs:
-     __entry_file =""
-    # définition du contsructeur
-    def __init__(self, entry_file="deniro.csv"):
+
+     __entry_file = ""
+
+    # définition du contsructeur qui prend une entree csv au format de deniro:
+    def __init__(self, entry_file= "deniro.csv"):
         self.__entry_file = entry_file
          
         
 
-    #la méthdode generate-html pour géné     
+    #la méthdode generate-html pour générer les pages htmls pour chaque film:    
 
     def generate_html(self, file_destination):
         
@@ -32,7 +35,7 @@ class PageMaker:
                     newcontent = content.teplace("[Year]", "r[0]" )
                     newcontent = content.teplace("[Score]", "r[1]" )
 
-                    f3 = open("/tmp/" + r[2][2:-1],"w")
+                    f3 = open("file_destination"+ "/" + r[2][2:-1],"w")
                     f3.write(newcontent)
                     f3.close()
 
@@ -46,15 +49,5 @@ class PageMaker:
             
        
 
-        with open(file_path, "rb") as f:
-            data = f.read()
-
-        # fernet pour encrypter les données
-        encrypted = self.fernet.encrypt(data)
-
-        with open(out_file, "wb") as f:
-            f.write(encrypted)
-        
-        print(f"Fichier crypté: {out_file}\n")
-
+       
 
