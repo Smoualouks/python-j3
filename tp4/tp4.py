@@ -31,9 +31,9 @@ class PageMaker:
                 f2 = open("template.html", "w")
                 content = f2.read()
                 f2.close()
-                newcontent = content.teplace("[Title]", "r[2]" )
-                newcontent = content.teplace("[Year]", "r[0]" )
-                newcontent = content.teplace("[Score]", "r[1]" )
+                newcontent = content.replace("[Title]", "r[2]" )
+                newcontent = content.replace("[Year]", "r[0]" )
+                newcontent = content.replace("[Score]", "r[1]" )
 
                 f3 = open("file_destination"+ "/" + r[2][2:-1],"w")
                 f3.write(newcontent)
