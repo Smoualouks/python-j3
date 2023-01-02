@@ -4,13 +4,13 @@ import csv, os
 
 class PageMaker:
 
-     #attributs:
+     #propritées:
 
      __entry_file = "deniro.csv"
 
     # définition du contsructeur qui prend une entree csv au format de deniro:
-     def __init__(self):
-            pass
+     def __init__(self, entry_file = "deniro.csv"):
+         self.__entry_file = entry_file
          
      # guetteur :
 
@@ -22,7 +22,7 @@ class PageMaker:
 
      def generate_html(self, file_destination):
         
-        file_path = self.get_entry_file()
+        file_path = self.__entry_file()
     
         with open(file_path, 'r') as f:
              # je lis le contenu du fichier csv.
@@ -46,8 +46,7 @@ class PageMaker:
 
               
 pm = PageMaker("deniro.csv")
-print(pm)
-#pm.generate_html("/tmp")
+pm.generate_html("/tmp")
 
 
 
