@@ -11,16 +11,13 @@ class PageMaker:
     # définition du contsructeur qui prend une entree csv au format de deniro:
      def __init__(self, entry_file = "deniro.csv"):
          self.__entry_file = entry_file
-         
-         
+     
      # guetteur :
 
      def get_entry_file(self):
          
          return self.__entry_file
        
-        
-
     #la méthdode generate-html pour générer les pages htmls pour chaque film:    
 
      def generate_html(self, file_destination):
@@ -46,9 +43,7 @@ class PageMaker:
                 f3 = open(file_destination + "/" + r[2][2:-1].replace(" ","-") +".html","w")
                 f3.write(newcontent)
                 f3.close()
-
-
-              
+             
 pm = PageMaker("deniro.csv")
 pm.generate_html("/tmp")
 
